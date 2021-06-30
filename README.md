@@ -1,3 +1,3 @@
-# PixServer
+## Initialize Spring Boot Security JWT token
 
-Este proyecto contiene todo lo referente a el Backend del proyecto PIX.
+#### collection: https://www.getpostman.com/collections/10545d0d9cc316b2900e
