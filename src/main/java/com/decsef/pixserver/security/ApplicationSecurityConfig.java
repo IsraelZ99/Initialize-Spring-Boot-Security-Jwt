@@ -23,6 +23,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.crypto.SecretKey;
 
@@ -78,5 +80,18 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/*", "index", "/css/*", "/js/*", "/auth/*", "/assets/**").permitAll()
                 .antMatchers("/api/*").hasRole(USER.name())
                 .anyRequest().authenticated();
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/auth/**")
+                        .allowedMethods("POST", "GET");
+                registry.addMapping("/api/**")
+                        .allowedMethods("POST", "PUT", "GET", "DELETE");
+            }
+        };
     }
 }
