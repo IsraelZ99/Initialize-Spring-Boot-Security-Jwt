@@ -1,3 +1,7 @@
+spring:
+  profiles:
+    active: local
+
 application:
   jwt:
     secretKey: 7413F545BBBAC7P1XE3B251ABBP1X5C68A86BAA4A175E8313C1CC3BB2975F1E4
