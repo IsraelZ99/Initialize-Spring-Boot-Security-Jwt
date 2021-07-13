@@ -72,6 +72,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors().and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -87,10 +88,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/auth/**")
-                        .allowedMethods("POST", "GET");
-                registry.addMapping("/api/**")
-                        .allowedMethods("POST", "PUT", "GET", "DELETE");
+                registry.addMapping("/**")
+                        .allowCredentials(true)
+                        .allowedOriginPatterns("*")
+                        .allowedMethods("POST", "PUT", "GET", "DELETE", "OPTIONS")
+                        .allowedHeaders("X-Requested-With", "Origin", "Content-Type", "Accept", "Authorization");
             }
         };
     }
