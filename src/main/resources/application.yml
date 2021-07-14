@@ -1,3 +1,10 @@
+# Configuracion para base de datos JPA, Flyway
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://url:5432/databaseName
+#    username: user
+#    password: password
+
 spring:
   profiles:
     active: local
