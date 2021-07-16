@@ -84,13 +84,18 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.5.3.Final</version>
         </dependency>
-
-        <!--<dependency>
-            <groupId>com.decsef</groupId>
-            <artifactId>check</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>-->
-
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.4.8</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-security -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-security</artifactId>
+            <version>1.4.8</version>
+        </dependency>
+        
     </dependencies>
 
     <build>
