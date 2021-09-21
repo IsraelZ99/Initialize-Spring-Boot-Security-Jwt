@@ -14,7 +14,7 @@
     <name>pix-server</name>
     <description>Backend project of PIX.</description>
     <properties>
-        <java.version>16</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
 <!--        <dependency>-->
